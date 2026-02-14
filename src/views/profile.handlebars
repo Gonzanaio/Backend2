@@ -1,0 +1,282 @@
+{{!-- <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mi Perfil</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f9ff;
+      min-height: 100vh;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e88e5, #42a5f5);
+      padding: 1rem 2rem;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h2 {
+      margin: 0;
+      font-size: 1.3rem;
+    }
+
+    header a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 6px 12px;
+      border-radius: 8px;
+      transition: background 0.2s ease;
+    }
+
+    header a:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .profile-card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #bbdefb, #90caf9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #0d47a1;
+    }
+
+    .info h3 {
+      margin: 0;
+      color: #1565c0;
+    }
+
+    .info p {
+      margin: 0.4rem 0;
+      color: #333;
+      font-size: 0.95rem;
+    }
+
+    .info span {
+      font-weight: bold;
+      color: #0d47a1;
+    }
+
+    .actions {
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .actions a {
+      text-decoration: none;
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 0.9rem;
+      color: white;
+      background: linear-gradient(135deg, #1e88e5, #42a5f5);
+      box-shadow: 0 4px 12px rgba(30, 136, 229, 0.3);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .actions a:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(30, 136, 229, 0.4);
+    }
+
+    .section {
+      margin-top: 2.5rem;
+    }
+
+    .section h4 {
+      color: #1565c0;
+      margin-bottom: 1rem;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+    }
+
+    .stat-card {
+      background: white;
+      border-radius: 14px;
+      padding: 1.2rem;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+      border-left: 5px solid #1e88e5;
+    }
+
+    .stat-card h5 {
+      margin: 0;
+      color: #0d47a1;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .stat-card p {
+      margin: 0.4rem 0 0;
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #1565c0;
+    }
+
+    .empty {
+      background: #e3f2fd;
+      border-radius: 12px;
+      padding: 1.2rem;
+      color: #0d47a1;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h2>Mi Perfil</h2>
+    <a href="/api/sessions/logout">Cerrar sesión</a>
+  </header>
+
+  <main class="container">
+    <section class="profile-card">
+      <div class="avatar">
+        {{user.first_name.[0]}}{{user.last_name.[0]}}
+      </div>
+
+      <div class="info">
+        <h3>{{user.nombre}} {{user.apellido}}</h3>
+        <p><span>Email:</span> {{user.email}}</p>
+        <p><span>Edad:</span> {{user.edad}}</p>
+
+        <div class="actions">
+          <a href="/productos">Ver productos</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h4>Resumen</h4>
+
+      <div class="stats">
+        <div class="stat-card">
+          <h5>Compras</h5>
+          <p>{{stats.orders}}</p>
+        </div>
+        <div class="stat-card">
+          <h5>Productos favoritos</h5>
+          <p>{{stats.favorites}}</p>
+        </div>
+        <div class="stat-card">
+          <h5>Último acceso</h5>
+          <p>{{stats.lastLogin}}</p>
+        </div>
+      </div>
+    </section>
+
+    {{#if message}}
+      <div class="section empty">
+        {{message}}
+      </div>
+    {{/if}}
+  </main>
+</body>
+</html> --}}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Perfil</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #020617, #1e40af);
+      font-family: Arial, Helvetica, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #e5e7eb;
+    }
+
+    .card {
+      background: #29397c;
+      padding: 2.5rem;
+      border-radius: 16px;
+      width: 100%;
+      max-width: 420px;
+      box-shadow: 0 12px 28px rgba(0,0,0,.45);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #ffffff;
+    }
+
+    .row {
+      margin-bottom: .7rem;
+      font-size: .95rem;
+    }
+
+    .label {
+      color: #ffffff;
+      font-weight: bold;
+    }
+
+    .actions {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .actions a {
+      color: #60a5fa;
+      text-decoration: none;
+      font-size: .9rem;
+    }
+
+    .actions a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Perfil</h1>
+
+    <div class="row"><span class="label">Nombre:</span> {{user.nombre}} {{user.apellido}}</div>
+    <div class="row"><span class="label">Email:</span> {{user.email}}</div>
+    <div class="row"><span class="label">Edad:</span> {{user.edad}}</div>
+
+    <div class="actions">
+      <a href="/productos">Productos</a>
+      <a href="/api/sessions/logout">Cerrar sesión</a>
+    </div>
+  </div>
+</body>
+</html>

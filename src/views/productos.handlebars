@@ -1,0 +1,311 @@
+{{!-- <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Producto</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f9ff;
+      min-height: 100vh;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e88e5, #42a5f5);
+      padding: 1rem 2rem;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h2 {
+      margin: 0;
+      font-size: 1.3rem;
+    }
+
+    header a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 6px 12px;
+      border-radius: 8px;
+      transition: background 0.2s ease;
+    }
+
+    header a:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 18px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .image-box {
+      background: linear-gradient(135deg, #bbdefb, #e3f2fd);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: #0d47a1;
+      font-weight: bold;
+      min-height: 260px;
+    }
+
+    .image-box img {
+      max-width: 100%;
+      max-height: 100%;
+      border-radius: 12px;
+      object-fit: contain;
+    }
+
+    .details h3 {
+      margin-top: 0;
+      color: #1565c0;
+      font-size: 1.6rem;
+    }
+
+    .price {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #1e88e5;
+      margin: 0.5rem 0 1rem;
+    }
+
+    .description {
+      color: #333;
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .meta div {
+      background: #e3f2fd;
+      border-radius: 10px;
+      padding: 0.8rem;
+      font-size: 0.85rem;
+      color: #0d47a1;
+    }
+
+    .meta span {
+      font-weight: bold;
+    }
+
+    .actions {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .actions form,
+    .actions a {
+      margin: 0;
+    }
+
+    .actions button,
+    .actions a {
+      padding: 10px 16px;
+      border-radius: 10px;
+      border: none;
+      font-weight: bold;
+      font-size: 0.9rem;
+      cursor: pointer;
+      color: white;
+      background: linear-gradient(135deg, #1e88e5, #42a5f5);
+      box-shadow: 0 4px 12px rgba(30, 136, 229, 0.3);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .actions button:hover,
+    .actions a:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(30, 136, 229, 0.4);
+    }
+
+    .stock {
+      font-weight: bold;
+      color: #0d47a1;
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    .out {
+      color: #b71c1c;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h2>Detalle de producto</h2>
+    <a href="/products">Volver</a>
+  </header>
+
+  <main class="container">
+    <section class="product-card">
+      <div class="image-box">
+        {{#if product.thumbnail}}
+          <img src="{{product.thumbnail}}" alt="{{product.title}}" />
+        {{else}}
+          🛍️
+        {{/if}}
+      </div>
+
+      <div class="details">
+        <h3>{{product.title}}</h3>
+        <div class="price">$ {{product.price}}</div>
+
+        <p class="description">{{product.description}}</p>
+
+        <div class="meta">
+          <div><span>Categoría:</span> {{product.category}}</div>
+          <div><span>Código:</span> {{product.code}}</div>
+          <div>
+            <span>Stock:</span>
+            {{#if product.stock}}
+              {{product.stock}}
+            {{else}}
+              <span class="out">Sin stock</span>
+            {{/if}}
+          </div>
+          <div><span>ID:</span> {{product._id}}</div>
+        </div>
+
+        <div class="actions">
+          <form action="/cart/add/{{product._id}}" method="POST">
+            <button type="submit">Agregar al carrito</button>
+          </form>
+
+          <a href="/products">Seguir comprando</a>
+        </div>
+
+        {{#if message}}
+          <p class="stock">{{message}}</p>
+        {{/if}}
+      </div>
+    </section>
+  </main>
+</body>
+</html> --}}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Productos</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #020617, #1e3a8a);
+      font-family: Arial, Helvetica, sans-serif;
+      color: #e5e7eb;
+      padding: 2rem;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      color: #ffffff;
+      margin: 0;
+    }
+
+    .user {
+      font-size: .9rem;
+      color: #bfdbfe;
+    }
+
+    .actions a {
+      color: #60a5fa;
+      margin-left: 1rem;
+      text-decoration: none;
+      font-size: .9rem;
+    }
+
+    .actions a:hover {
+      text-decoration: underline;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .card {
+      background: #020617;
+      border-radius: 14px;
+      padding: 1.2rem;
+      box-shadow: 0 6px 16px rgba(0,0,0,.35);
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 22px rgba(0,0,0,.45);
+    }
+
+    .nombre {
+      font-size: 1.05rem;
+      margin-bottom: .4rem;
+      color: #fefefe;
+    }
+
+    .precio {
+      font-size: .95rem;
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Productos</h1>
+      <div class="user">Hola {{user.nombre}}</div>
+    </div>
+
+    <div class="actions">
+      <a href="/profile">Perfil</a>
+      <a href="/api/sessions/logout">Cerrar sesión</a>
+    </div>
+  </header>
+
+  <section class="grid">
+    {{#each productos}}
+      <div class="card">
+        <div class="nombre">{{this.nombre}}</div>
+        <div class="precio">$ {{this.precio}}</div>
+      </div>
+    {{/each}}
+  </section>
+</body>
+</html>
