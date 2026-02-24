@@ -1,18 +1,11 @@
-import jwt from "jsonwebtoken";
+import passport from "passport";
 
 export const authToken = (req, res, next) => {
-  // puede no existir cookies todavía
-  if (!req.cookies || !req.cookies.jwtCookie) {
-    return res.status(401).send("No autorizado: usuario no logueado");
-  }
+  passport.authenticate("current", { session: false }, (err, user, info) => {
+    if (err) return next(err);
+    if (!user) return res.status(401).send("No autorizado");
 
-  const token = req.cookies.jwtCookie;
-
-  try {
-    const user = jwt.verify(token, "secretJWT");
     req.user = user;
     next();
-  } catch (error) {
-    return res.status(403).send("Token inválido o expirado");
-  }
+  })(req, res, next);
 };
